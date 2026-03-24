@@ -24,11 +24,17 @@ const App = () => {
     return (
       <div className="app">
         <h1>Animax</h1>
+        <h2>An online repository for movies and shows</h2>
   
         <div className="search">
           <input
-            value={searchTerm}
+          value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                searchMovies(searchTerm);
+              }
+            }}
             placeholder="Search for show"
           />
           <img
